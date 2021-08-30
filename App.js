@@ -1,13 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableNativeFeedback,
-} from "react-native";
+import { Button, SafeAreaView, StyleSheet } from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Text pressed");
@@ -15,28 +7,11 @@ export default function App() {
   return (
     //view works as a div
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={3} onPress={handlePress}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, quas ab
-        laudantium est, officia soluta laboriosam voluptatum saepe facilis
-        beatae non ipsum eaque obcaecati consequatur? Amet repellat perferendis
-        officiis esse.
-      </Text>
-      {/* <Image source={require("./assets/favicon.png")} /> */}
-      <TouchableNativeFeedback onPress={() => console.log("Image tapped")}>
-        {/* <Image
-          blurRadius={10}
-          fadeDuration={1000}
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://picsum.photos/200/300",
-          }}
-        /> */}
-        <View
-          style={{ width: 200, height: 300, backgroundColor: "red" }}
-        ></View>
-      </TouchableNativeFeedback>
-      <StatusBar style="auto" />
+      <Button
+        color="orange"
+        title="Click me"
+        onPress={() => console.log("Button Pressed")}
+      />
     </SafeAreaView>
   );
 }
@@ -45,7 +20,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
     alignItems: "center",
     justifyContent: "center",
   },
