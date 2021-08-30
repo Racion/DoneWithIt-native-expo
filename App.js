@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableNativeFeedback,
+} from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Text pressed");
@@ -15,15 +22,20 @@ export default function App() {
         officiis esse.
       </Text>
       {/* <Image source={require("./assets/favicon.png")} /> */}
-      <Image
-        blurRadius={10}
-        fadeDuration={1000}
-        source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/200/300",
-        }}
-      />
+      <TouchableNativeFeedback onPress={() => console.log("Image tapped")}>
+        {/* <Image
+          blurRadius={10}
+          fadeDuration={1000}
+          source={{
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300",
+          }}
+        /> */}
+        <View
+          style={{ width: 200, height: 300, backgroundColor: "red" }}
+        ></View>
+      </TouchableNativeFeedback>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
