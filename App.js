@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { Alert, Button, SafeAreaView, StyleSheet } from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Text pressed");
@@ -10,7 +10,17 @@ export default function App() {
       <Button
         color="orange"
         title="Click me"
-        onPress={() => console.log("Button Pressed")}
+        onPress={
+          () => {
+            return Alert.prompt("My title", "Message", (text) =>
+              console.log(text)
+            ); //! prompt solo funciona en iOS
+          }
+          // Alert.alert("Hello", "This is an alert.", [
+          //   { text: "Yes", onPress: () => console.log("Yes") },
+          //   { text: "No", onPress: () => console.log("No") },
+          // ])
+        }
       />
     </SafeAreaView>
   );
