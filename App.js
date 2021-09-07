@@ -1,5 +1,14 @@
 import React from "react";
-import { Alert, Button, SafeAreaView, StyleSheet } from "react-native";
+import {
+  Alert,
+  Button,
+  Dimensions,
+  Platform,
+  SafeAreaView /* only works on iOS */,
+  StatusBar,
+  StyleSheet,
+  View
+} from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Text pressed");
@@ -14,7 +23,7 @@ export default function App() {
           () => {
             return Alert.prompt("My title", "Message", (text) =>
               console.log(text)
-            ); //! prompt solo funciona en iOS
+            ); //! prompt only works on iOS
           }
           // Alert.alert("Hello", "This is an alert.", [
           //   { text: "Yes", onPress: () => console.log("Yes") },
@@ -30,7 +39,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
