@@ -1,43 +1,24 @@
 import React from "react";
-import {
-  Alert,
-  Button,
-  Dimensions,
-  Platform,
-  SafeAreaView /* only works on iOS */,
-  StatusBar,
-  StyleSheet,
-  View,
-} from "react-native";
-import {
-  useDimensions,
-  useDeviceOrientation,
-} from "@react-native-community/hooks";
+import { View } from "react-native";
 
 export default function App() {
-  const { landscape } = useDeviceOrientation();
-  const handlePress = () => console.log("Text pressed");
-  //function component
   return (
-    //view works as a div
-    <SafeAreaView style={styles.container}>
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "stretch",
+      }}
+    >
       <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: "100%",
-          height: landscape ? "100%" : "30%",
-        }}
+        style={{ backgroundColor: "dodgerblue", height: 300, width: 100 }}
       ></View>
-    </SafeAreaView>
+      <View style={{ backgroundColor: "gold", height: 200, width: 100 }}></View>
+      <View
+        style={{ backgroundColor: "tomato", height: 100, width: 100 }}
+      ></View>
+    </View>
   );
 }
-
-//Create the stylesheet object, we pass an object that is container, this is not css is js property
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-});
