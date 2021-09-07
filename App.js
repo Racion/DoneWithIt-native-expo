@@ -7,30 +7,19 @@ import {
   SafeAreaView /* only works on iOS */,
   StatusBar,
   StyleSheet,
-  View
+  View,
 } from "react-native";
 
 export default function App() {
+  console.log(Dimensions.get("screen"));
   const handlePress = () => console.log("Text pressed");
   //function component
   return (
     //view works as a div
     <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Click me"
-        onPress={
-          () => {
-            return Alert.prompt("My title", "Message", (text) =>
-              console.log(text)
-            ); //! prompt only works on iOS
-          }
-          // Alert.alert("Hello", "This is an alert.", [
-          //   { text: "Yes", onPress: () => console.log("Yes") },
-          //   { text: "No", onPress: () => console.log("No") },
-          // ])
-        }
-      />
+      <View
+        style={{ backgroundColor: "dodgerblue", width: "50%", height: 70 }}
+      ></View>
     </SafeAreaView>
   );
 }
