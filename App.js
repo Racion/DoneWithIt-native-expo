@@ -9,21 +9,24 @@ export default function App() {
         flex: 1,
         flexDirection: "row",
         justifyContent: "center",
-        alignContent: "center", 
         alignItems: "center",
-        flexWrap: "wrap",
       }}
     >
       <View
-        style={{ backgroundColor: "dodgerblue", height: 100, width: 100 }}
+        style={{
+          backgroundColor: "dodgerblue",
+          height: 100,
+          width: 100,
+          //flexgrow: 1,
+          //flex: 1,
+          //flexbasis: 100, replace width on row and height on col
+          //flexshrink: 1,
+          //flex: -1,
+        }}
       ></View>
       <View style={{ backgroundColor: "gold", height: 100, width: 100 }}></View>
       <View
         style={{ backgroundColor: "tomato", height: 100, width: 100 }}
-      ></View>
-      <View style={{ backgroundColor: "grey", height: 100, width: 100 }}></View>
-      <View
-        style={{ backgroundColor: "greenyellow", height: 100, width: 100 }}
       ></View>
     </View>
   );
