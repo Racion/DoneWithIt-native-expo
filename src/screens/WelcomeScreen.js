@@ -1,54 +1,46 @@
 import React from "react";
-import {
-  Button,
-  View,
-  StyleSheet,
-  ImageBackground,
-  Image,
-  Text,
-} from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 
-import { colors } from "../styles/styles";
-
-export default function WelcomeScreen() {
+function WelcomeScreen(props) {
   return (
-    <View>
-      <ImageBackground
-        source={require("../../assets/background.jpg")}
-        style={styles.backgroundImage}
-      >
-        <View style={styles.imageContainer}>
-          <Image
-            source={require("../../assets/logo-red.png")}
-            style={styles.imagestyle}
-          />
-          <Text> Sell What You Don't Need</Text>
-        </View>
-        <View style={styles.buttons}>
-          <Button title="red" color={colors.redLog} />
-          <Button title="green" color={colors.greenReg} />
-        </View>
-      </ImageBackground>
-    </View>
+    <ImageBackground
+      style={styles.background}
+      source={require("../assets/background.jpg")}
+    >
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+        <Text>Sell What You Don't Need</Text>
+      </View>
+      <View style={styles.loginButton}></View>
+      <View style={styles.registerButton}></View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    width: "100%",
-    height: "100%",
-  },
-  buttons: {
-    flex: 1,
+  background: {
+    flex: 1, //To ocupate all the screen
     justifyContent: "flex-end",
-  },
-  imageContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 100,
   },
-  imagestyle: {
+  loginButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "#fc5c65",
+  },
+  logo: {
     width: 100,
     height: 100,
   },
+  logoContainer: {
+    position: "absolute",
+    top: 70,
+    alignItems: "center",
+  },
+  registerButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "#4ecdc4",
+  },
 });
+export default WelcomeScreen;
